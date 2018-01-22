@@ -14,11 +14,22 @@ namespace Program
             int index = 0;
             int result = 0;
 
-            while (index < roman.Length)
+            while (index < roman.Length - 1)
             {
-                result += romanSymbols[roman[index]];
-                index++;
+                if (romanSymbols[roman[index]] < romanSymbols[roman[index + 1]])
+                {
+                    result += (romanSymbols[roman[index + 1]] - romanSymbols[roman[index]]);
+                    index += 2;
+                }
+                else
+                {
+                    result += romanSymbols[roman[index]];
+                    index++;
+                }
             }
+
+            if (index == roman.Length - 1)
+                result += romanSymbols[roman[index]];
 
             return result;
         }
