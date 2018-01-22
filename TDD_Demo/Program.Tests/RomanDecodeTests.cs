@@ -34,5 +34,19 @@ namespace Program.Tests
             // Assert
             Assert.AreEqual(expected, result);
         }
+
+        [TestMethod]
+        public void ConvertToDecimal_VI_6()
+        {
+            var romanDecode = new RomanDecode();
+            var roman = "VI";
+            var expected = 6;
+
+            // Act
+            var result = romanDecode.ConvertToDecimal(roman);
+
+            // Assert
+            Assert.AreEqual(expected, result);
+        }
     }
 }
