@@ -9,7 +9,10 @@ namespace Program
             if (Roman == "I")
                 return 1;
 
-           return 0;
+            if (Roman == "V")
+                return 5;
+
+            return 0;
         }
     }
 }
