@@ -76,5 +76,19 @@ namespace Program.Tests
             // Assert
             Assert.AreEqual(expected, result);
         }
+
+        [TestMethod]
+        public void ConvertToDecimal_CMXCIX_999()
+        {
+            var romanDecode = new RomanDecode();
+            var roman = "CMXCIX";
+            var expected = 999;
+
+            // Act
+            var result = romanDecode.ConvertToDecimal(roman);
+
+            // Assert
+            Assert.AreEqual(expected, result);
+        }
     }
 }
