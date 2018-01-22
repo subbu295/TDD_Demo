@@ -106,36 +106,36 @@ namespace Program.Tests
         }
 
         [TestMethod]
-        [ExpectedException(typeof(Exception), "Invalid roman string.")]
         public void ConvertToDecimal_NULL_Exception()
         {
             var romanDecode = new RomanDecode();
-            string roman = null;
-           
-            // Act
-            romanDecode.ConvertToDecimal(roman);
+
+            // Act => Assert
+            var exception = Assert.ThrowsException<Exception>(() => romanDecode.ConvertToDecimal(null));
+                                                  
+            Assert.AreEqual(exception.Message, "Invalid roman number string.");
         }
 
         [TestMethod]
-        [ExpectedException(typeof(Exception), "Invalid roman string.")]
         public void ConvertToDecimal_Empty_Exception()
         {
             var romanDecode = new RomanDecode();
-            string roman = string.Empty;
 
-            // Act
-            romanDecode.ConvertToDecimal(roman);
+            // Act => Assert
+            var exception = Assert.ThrowsException<Exception>(() => romanDecode.ConvertToDecimal(string.Empty));
+
+            Assert.AreEqual(exception.Message, "Invalid roman number string.");
         }
 
         [TestMethod]
-        [ExpectedException(typeof(Exception), "Invalid roman string.")]
         public void ConvertToDecimal_AABB_Exception()
         {
             var romanDecode = new RomanDecode();
-            string roman = "AABB";
 
-            // Act
-            romanDecode.ConvertToDecimal(roman);
+            // Act => Assert
+            var exception = Assert.ThrowsException<Exception>(() => romanDecode.ConvertToDecimal("AABB"));
+
+            Assert.AreEqual(exception.Message, "Invalid roman number string.");
         }
     }
 }

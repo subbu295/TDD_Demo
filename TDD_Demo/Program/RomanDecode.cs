@@ -9,7 +9,7 @@ namespace Program
         {
             if (string.IsNullOrEmpty(romanNumber))
             {
-                throw new Exception("Invalid roman string.");
+                throw new Exception("Invalid roman number string.");
             }
 
             Dictionary<char, int> romanSymbols = new Dictionary<char, int>
@@ -27,7 +27,7 @@ namespace Program
 
                 if (!romanSymbols.ContainsKey(firstChar))
                 {
-                    throw new Exception("Invalid roman string.");
+                    throw new Exception("Invalid roman number string.");
                 }
 
                 if (index != romanNumber.Length - 1)
