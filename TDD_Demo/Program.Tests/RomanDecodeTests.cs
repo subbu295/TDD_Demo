@@ -115,5 +115,16 @@ namespace Program.Tests
             // Act
             romanDecode.ConvertToDecimal(roman);
         }
+
+        [TestMethod]
+        [ExpectedException(typeof(Exception), "Invalid roman string.")]
+        public void ConvertToDecimal_Empty_Exception()
+        {
+            var romanDecode = new RomanDecode();
+            string roman = string.Empty;
+
+            // Act
+            romanDecode.ConvertToDecimal(roman);
+        }
     }
 }
