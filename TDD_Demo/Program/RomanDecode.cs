@@ -21,6 +21,11 @@ namespace Program
 
             while (index < roman.Length - 1)
             {
+                if (!romanSymbols.ContainsKey(roman[index]))
+                {
+                    throw new Exception("Invalid roman string.");
+                }
+
                 if (romanSymbols[roman[index]] < romanSymbols[roman[index + 1]])
                 {
                     result += (romanSymbols[roman[index + 1]] - romanSymbols[roman[index]]);
