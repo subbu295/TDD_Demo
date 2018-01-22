@@ -104,5 +104,20 @@ namespace Program.Tests
             // Assert
             Assert.AreEqual(expected, result);
         }
+
+        [TestMethod]
+        [ExpectedException(typeof(ArgumentException), "Invalid roman string.")]
+        public void ConvertToDecimal_NULL_Exception()
+        {
+            var romanDecode = new RomanDecode();
+            string roman = null;
+            var expected = 0;
+
+            // Act
+            var result = romanDecode.ConvertToDecimal(roman);
+
+            // Assert
+            //Assert.AreEqual(expected, result);
+        }
     }
 }
