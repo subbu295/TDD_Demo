@@ -126,5 +126,16 @@ namespace Program.Tests
             // Act
             romanDecode.ConvertToDecimal(roman);
         }
+
+        [TestMethod]
+        [ExpectedException(typeof(Exception), "Invalid roman string.")]
+        public void ConvertToDecimal_AABB_Exception()
+        {
+            var romanDecode = new RomanDecode();
+            string roman = "AABB";
+
+            // Act
+            romanDecode.ConvertToDecimal(roman);
+        }
     }
 }
