@@ -106,18 +106,14 @@ namespace Program.Tests
         }
 
         [TestMethod]
-        [ExpectedException(typeof(ArgumentException), "Invalid roman string.")]
+        [ExpectedException(typeof(Exception), "Invalid roman string.")]
         public void ConvertToDecimal_NULL_Exception()
         {
             var romanDecode = new RomanDecode();
             string roman = null;
-            var expected = 0;
-
+           
             // Act
-            var result = romanDecode.ConvertToDecimal(roman);
-
-            // Assert
-            //Assert.AreEqual(expected, result);
+            romanDecode.ConvertToDecimal(roman);
         }
     }
 }

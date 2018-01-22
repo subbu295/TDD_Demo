@@ -7,6 +7,11 @@ namespace Program
     {
         public int ConvertToDecimal(string roman)
         {
+            if (string.IsNullOrEmpty(roman))
+            {
+                throw new Exception("Invalid roman string.");   
+            }
+
             Dictionary<char, int> romanSymbols = new Dictionary<char, int>
                                                 { { 'I', 1 }, { 'V', 5 }, { 'X', 10 },
                                                 { 'L', 50 }, { 'C', 100 }, { 'D', 500 }, { 'M', 1000 } };
