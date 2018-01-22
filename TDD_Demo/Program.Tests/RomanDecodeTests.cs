@@ -62,5 +62,19 @@ namespace Program.Tests
             // Assert
             Assert.AreEqual(expected, result);
         }
+
+        [TestMethod]
+        public void ConvertToDecimal_IV_4()
+        {
+            var romanDecode = new RomanDecode();
+            var roman = "IV";
+            var expected = 4;
+
+            // Act
+            var result = romanDecode.ConvertToDecimal(roman);
+
+            // Assert
+            Assert.AreEqual(expected, result);
+        }
     }
 }
