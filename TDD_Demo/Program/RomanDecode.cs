@@ -5,41 +5,47 @@ namespace Program
 {
     public class RomanDecode
     {
-        public int ConvertToDecimal(string roman)
+        public int ConvertToDecimal(string romanNumber)
         {
-            if (string.IsNullOrEmpty(roman))
+            if (string.IsNullOrEmpty(romanNumber))
             {
-                throw new Exception("Invalid roman string.");   
+                throw new Exception("Invalid roman string.");
             }
 
             Dictionary<char, int> romanSymbols = new Dictionary<char, int>
                                                 { { 'I', 1 }, { 'V', 5 }, { 'X', 10 },
-                                                { 'L', 50 }, { 'C', 100 }, { 'D', 500 }, { 'M', 1000 } };
+                                                { 'L', 50 }, { 'C', 100 }, { 'D', 500 },
+                                                { 'M', 1000 } };
 
             int index = 0;
             int result = 0;
 
-            while (index < roman.Length - 1)
+            while (index < romanNumber.Length)
             {
-                if (!romanSymbols.ContainsKey(roman[index]))
+                char firstChar = romanNumber[index];
+                char secondChar = romanNumber[index];
+
+                if (!romanSymbols.ContainsKey(firstChar))
                 {
                     throw new Exception("Invalid roman string.");
                 }
 
-                if (romanSymbols[roman[index]] < romanSymbols[roman[index + 1]])
+                if (index != romanNumber.Length - 1)
                 {
-                    result += (romanSymbols[roman[index + 1]] - romanSymbols[roman[index]]);
+                    secondChar = romanNumber[index + 1];
+                }                              
+
+                if (romanSymbols[firstChar] < romanSymbols[secondChar])
+                {
+                    result += (romanSymbols[secondChar] - romanSymbols[firstChar]);
                     index += 2;
                 }
                 else
                 {
-                    result += romanSymbols[roman[index]];
+                    result += romanSymbols[firstChar];
                     index++;
                 }
-            }
-
-            if (index == roman.Length - 1)
-                result += romanSymbols[roman[index]];
+            }           
 
             return result;
         }
