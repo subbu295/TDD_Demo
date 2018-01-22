@@ -7,12 +7,18 @@ namespace Program
     {
         public int ConvertToDecimal(string roman)
         {
-            Dictionary<string, int> romanSymbols = new Dictionary<string, int> { { "I", 1 }, { "V", 5 } };
-            
-            if (romanSymbols.ContainsKey(roman))
-                return romanSymbols[roman];
-                
-            return 0;
+            Dictionary<char, int> romanSymbols = new Dictionary<char, int> { { 'I', 1 }, { 'V', 5 } };
+
+            int index = 0;
+            int result = 0;
+
+            while (index < roman.Length)
+            {
+                result += romanSymbols[roman[index]];
+                index++;
+            }
+
+            return result;
         }
     }
 }
